@@ -1,18 +1,13 @@
 defmodule Gravcon do
-  @moduledoc """
-  Documentation for Gravcon.
-  """
+  def main(string) do 
+    string
+    |> hash  
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Gravcon.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def hash(string) do 
+    # 4 x 8 -> (8) x 8
+    hex = :crypto.hash(:sha256, string)
+    |> :binary.bin_to_list
+    %Gravcon.Image{hex: hex}
   end
 end
